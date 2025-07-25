@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
           ),
           debugShowCheckedModeBanner: false,
-          home: HomePageForHr()
+          home: const HomePageForHr()
           // const JobPostingPage(),
           // const JobMatchingPage()
           // const SelectAccountTypePage()
