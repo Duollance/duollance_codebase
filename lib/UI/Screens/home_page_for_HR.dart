@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:duollance_mobile_frontend/UI/components/bottom_bars.dart';
 import 'package:duollance_mobile_frontend/UI/components/fancy_container.dart';
 import 'package:duollance_mobile_frontend/UI/components/fancy_text.dart';
 import 'package:duollance_mobile_frontend/globals/functions/app_theme.dart';
@@ -144,7 +145,12 @@ class _HomePageForHrState extends State<HomePageForHr> {
             ),
           ),
         ),
-        bottomNavigationBar: _buildBottomNavigationBar(),
+        bottomNavigationBar: buildBottomNavigationBarForHR(
+          context,
+          () {
+            setState(() {});
+          },
+        ),
       ),
     );
   }
@@ -183,7 +189,8 @@ class _HomePageForHrState extends State<HomePageForHr> {
               showCheckmark: false,
               visualDensity: VisualDensity(horizontal: 0, vertical: 0),
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
+                  borderRadius: BorderRadius.circular(20),
+                  side: BorderSide(color: Colors.transparent)),
             ),
           );
         }),
@@ -307,6 +314,7 @@ class _HomePageForHrState extends State<HomePageForHr> {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Row(
                     children: [
@@ -398,52 +406,5 @@ class _HomePageForHrState extends State<HomePageForHr> {
             ),
           ),
         ));
-  }
-
-  Widget _buildBottomNavigationBar() {
-    return BottomNavigationBar(
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: SizedBox(
-              height: 25,
-              width: 25,
-              child: Image.asset("assets/images/bottomNavBarIcon-home.png")),
-          label: 'Home',
-        ),
-        BottomNavigationBarItem(
-          icon: SizedBox(
-              height: 25,
-              width: 25,
-              child: Image.asset("assets/images/bottomNavBarIcon-list.png")),
-          // Icon(
-          //   Icons.people_alt,
-          //   color: _selectedIndex == 1 ? const Color(0xFF673AB7) : Colors.grey,
-          // ),
-          label: 'HR',
-        ),
-        BottomNavigationBarItem(
-          icon: SizedBox(
-              height: 25,
-              width: 25,
-              child: Image.asset("assets/images/bottomNavBarIcon-chat.png")),
-          label: 'My Order',
-        ),
-        BottomNavigationBarItem(
-          icon: SizedBox(
-              height: 25,
-              width: 25,
-              child: Image.asset("assets/images/bottomNavBarIcon-user.png")),
-          label: 'Profile',
-        ),
-      ],
-      currentIndex: _selectedIndex,
-      selectedItemColor: const Color(0xFF673AB7),
-      unselectedItemColor: Colors.grey,
-      onTap: _onItemTapped,
-      type: BottomNavigationBarType.fixed,
-      backgroundColor: Colors.white,
-      selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w600),
-      unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.w500),
-    );
   }
 }

@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       builder: (context, child) => MaterialApp(
-          title: 'Flutter Demo',
+          title: 'Duollance',
           theme: ThemeData(
             colorScheme:
                 ColorScheme.fromSeed(seedColor: AppTheme().primaryColor),
